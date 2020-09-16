@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <!-- <ul class="nav-ul">
-      <li v-for="(value,key) in navList" :key="key" :class="key==n?'active':''" @click="n=key"  >
+    <div class="nav-root">
+      <div class="nav-item" v-for="(value,key) in navList" :key="key" :class="value.index==activeIndex?'active':''" @click="clickNav(value)">
         {{value.name}}
-      </li>        
-    </ul> -->
+      </div>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -15,7 +15,25 @@ export default {
   name: 'App',
   data () {
     return {
-
+      activeIndex: 0,
+      navList: [
+        {
+          name: '首页',
+          index: 0,
+          path: '/'
+        },
+        {
+          name: '测试',
+          index: 1,
+          path: 'test'
+        }
+      ]
+    }
+  },
+  methods: {
+    clickNav(val) {
+      this.activeIndex = val.index;
+      router.push({ path: val.path });
     }
   }
 }
@@ -29,5 +47,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
+}
+#app .nav-root {
+  display: flex;
+  text-align: center;
+  line-height: 24px;
+  justify-content: start;
+}
+#app .nav-root .nav-item {
+  /* margin: 0 8px; */
+  padding: 4px 8px;
+  background-color: gray;
+}
+
+#app .nav-root .active {
+  background-color: #f40;
 }
 </style>
