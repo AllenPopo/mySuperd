@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <ul class="nav-ul">
+      <li v-for="(value,key) in navList" :key="key" :class="key==n?'active':''" @click="n=key"  >
+        {{value.name}}
+      </li>        
+    </ul> -->
     <router-view/>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+
+    }
+  }
 }
 </script>
 
@@ -18,6 +28,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
