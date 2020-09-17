@@ -1,6 +1,6 @@
-# mysuperd
+# tempobj
 
-> a new project
+> temp
 
 ## Build Setup
 
